@@ -15,7 +15,7 @@ Este arquivo contém as resoluções dos exercícios presentes no notebook `Ativ
 > - `workspace.bronze.fut_players_data`
 > - `workspace.bronze.pokemon_data`
 
-> Obervação 2: Ao dar upload nos datasets, criei 3 schemas diferentes seguindo a arquitetura medalhão: bronze, silver e gold
+> Obervação 2: Ao dar upload nos datasets, criei 3 schemas diferentes seguindo a arquitetura medalhão: bronze, silver e gold.
 
 ---
 
