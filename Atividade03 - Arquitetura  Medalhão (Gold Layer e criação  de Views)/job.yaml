@@ -1,0 +1,27 @@
+resources:
+  jobs:
+    Pipeline_Medalhão_E_commerce_Olist:
+      name: Pipeline Medalhão - E-commerce Olist
+      schedule:
+        quartz_cron_expression: 0 0 */2 * * ?
+        timezone_id: America/Sao_Paulo
+        pause_status: UNPAUSED
+      tasks:
+        - task_key: extracao_bronze
+          notebook_task:
+            notebook_path: /Workspace/Users/jpbmtl@cin.ufpe.br/Atividade2_BronzeLayer
+            source: WORKSPACE
+        - task_key: conversao_silver
+          depends_on:
+            - task_key: extracao_bronze
+          notebook_task:
+            notebook_path: /Workspace/Users/jpbmtl@cin.ufpe.br/Atividade2_SilverLayer
+            source: WORKSPACE
+        - task_key: transformacao_gold
+          depends_on:
+            - task_key: conversao_silver
+          notebook_task:
+            notebook_path: /Workspace/Users/jpbmtl@cin.ufpe.br/Atividade3_GoldLayer
+            source: WORKSPACE
+      queue:
+        enabled: true
